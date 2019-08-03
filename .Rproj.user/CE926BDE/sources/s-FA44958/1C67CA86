@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564826622088.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1C67CA86",
+    "lastKnownWriteTime" : 1564830667,
+    "last_content_update" : 1564830667642,
+    "path" : "~/workspace/R-stuff/tfKernel/R/kernels.R",
+    "project_path" : "R/kernels.R",
+    "properties" : {
+        "cursorPosition" : "95,1",
+        "scrollLine" : "80"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

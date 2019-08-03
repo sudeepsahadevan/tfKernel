@@ -1,0 +1,98 @@
+# R functions to generate BED tracks from 2C data
+# these functions expects that the input data.frames are processed using csaw R package
+# Author: Sudeep Sahadevan, sudeep.sahadevan@embl.de
+
+#' generate bed detail track from Csaw best window results
+#' @param obj: data.frame with csaw `getBestTest` function resutls
+#' @param fileName: file name to write track bed
+#' @param chrCol: column index for chromosome name
+#' @param startCol: column index for start position
+#' @param endCol: column index for end position
+#' @param strandCol: column index for strand information
+#' @param logFcCol: column index for fold change
+#' @param logFCThresh: log fold change cut-off treshold (absolute value)
+#' @param padjCol: column index for padjusted value
+#' @param padjThresh: padjusted value cut off threshold
+#' @param significantCol: column index for Significance string
+#' @param appendChr: boolean, append 'chr' to chromosome names
+#' @param trackName: name of the track
+#' @param description: track description
+bestWindow2Bed <- function(obj,fileName,chrCol=1,startCol=2,endCol=3,strandCol=8,logFcCol=10,logFcThresh=1,padjCol=14,padjThresh=0.05,
+                           significantCol=28,appendChr=FALSE,trackName='bestWindow',description='best window per region'){
+    obj[,logFcCol] <- as.numeric(obj[,logFcCol])
+    obj[,padjCol] <- as.numeric(obj[,padjCol])
+    obj <- na.omit(obj[ obj[,padjCol] <= padjThresh & abs(obj[,logFcCol])>=abs(logFcThresh),c(chrCol,startCol,endCol,strandCol,padjCol,logFcCol,significantCol)])
+    if(nrow(obj)==0){
+        stop('No significant windows after applying thresholds! Try relaxing padj. value and log fc thresholds')
+    }
+    obj[,4] <- gsub(pattern="\\*",replacement=".",obj[,4])
+    if(appendChr){
+      obj[,1] <- paste('chr',obj[,1],sep='')
+    }
+    obj$names <- paste(obj[,1],':',obj[,2],'-',obj[,3],sep='')
+    obj$rgbel <- ifelse(obj[,6]>0,'237,28,36','24,158,236')
+    logFCMax <- ceiling(max(abs(obj[,6])))
+    obj$scores <- abs(obj[,6])
+    obj$bCount <- rep(1,nrow(obj))
+    obj$bSize <- obj[,3]-obj[,2]
+    obj$bStart <- rep(0,nrow(obj))
+    logFCMin <- abs(logFcThresh)
+    bedrange <- c(100,1000) # min max values for bed score
+    # +ve bed scores for upregulated windows
+    #upregulated <- which(obj[,6]>0)
+    obj$scores <- round(((obj$scores-logFCMin)/(logFCMax-logFCMin))*(bedrange[2]-bedrange[1])+bedrange[1])
+    # -ve bed scores for down regulated windows
+    #downregulated <- which(obj[,6]<0)
+    # obj$scores[downregulated] <- round(((-obj$scores[downregulated]-logFCMin)/(logFCMax-logFCMin))*(bedrange[2]-bedrange[1])+bedrange[1])
+    obj[,7] <- paste('Significant: ',obj[,7],';logFC: ',obj[,6],sep='')
+    obj <- obj[,c(1,2,3,8,10,4,2,3,9,11,12,13,8,7)]
+    
+    obj <- obj[order(obj[,1],obj[,2]),]
+    write(sprintf('track name="%s" type="bedDetail" description="%s" visibility=2 itemRgb="On" useScore=1',trackName,description),file=fileName)
+    for(i in c(1:nrow(obj))){
+      write(paste(obj[i,],collapse = "\t"),file=fileName,append=TRUE)
+    }
+}
+
+#' generate bed detail track from Csaw combine tests result
+#' @param obj: data.frame with csaw `combineTests` function resutls
+#' @param fileName: file name to write track bed
+#' @param chrCol: column index for chromosome name
+#' @param startCol: column index for start position
+#' @param endCol: column index for end position
+#' @param strandCol: column index for strand information
+#' @param padjCol: column index for padjusted value
+#' @param padjThresh: padjusted value cut off threshold
+#' @param appendChr: boolean, append 'chr' to chromosome names
+#' @param trackName: name of the track
+#' @param description: track description
+combineTest2Bed <- function(obj,fileName,chrCol=1,startCol=2,endCol=3,strandCol=8,padjCol=13,padjThresh=0.05,directionCol=14,appendChr=FALSE,
+                            trackName='combineList',description='combined region'){
+  obj[,padjCol] <- as.numeric(obj[,padjCol])
+  obj[,directionCol] <- as.character(obj[,directionCol])
+  # return(obj[obj[,padjCol] <= padjThresh,])
+  obj <- obj[ obj[,padjCol]<=padjThresh, ]
+  obj <- na.omit(obj[,c(chrCol,startCol,endCol,strandCol,padjCol,directionCol)])
+  rownames(obj) <- NULL
+  #obj <- na.omit(obj[obj[,padjCol] <= padjThresh,c(chrCol,startCol,endCol,strandCol,padjCol,directionCol)])
+  if(nrow(obj)==0){
+    stop('No significant windows after applying thresholds! Try relaxing padj. value threshold')
+  }
+  obj[,4] <- gsub(pattern="\\*",replacement=".",obj[,4])
+  if(appendChr){
+    obj[,1] <- paste('chr',obj[,1],sep='')
+  }
+  obj$names <- paste(obj[,1],':',obj[,2],'-',obj[,3],sep='')
+  obj$rgbel <- ifelse(obj[,6]=='up','237,28,36',ifelse(obj[,6]=='down','24,158,236','235,188,20'))
+  bedrange <- c(100,1000) # min max values for bed score
+  obj$scores <- 1-obj[,5]
+  pMin <- padjThresh
+  pMax <- 1
+  obj$scores <- round(((obj$scores-padjThresh)/(pMax-pMin))*(bedrange[2]-bedrange[1])+bedrange[1])
+  obj <- obj[,c(1,2,3,7,9,4,2,3,8)]
+  obj <- obj[order(obj[,1],obj[,2]),]
+  write(sprintf('track name="%s" type="bedDetail" description="%s" visibility=2 itemRgb="On" useScore=1',trackName,description),file=fileName)
+  for(i in c(1:nrow(obj))){
+    write(paste(obj[i,],collapse = "\t"),file=fileName,append=TRUE)
+  }
+}

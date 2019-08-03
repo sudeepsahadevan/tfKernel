@@ -1,0 +1,308 @@
+[
+    {
+        "definitions" : [
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 17,
+                "name" : "mat_mult(SEXP, SEXP, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@mat_mult#*$@S@SEXPREC#S0_#I#"
+            },
+            {
+                "column" : 21,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 49,
+                "name" : "est_sig(SEXP, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@est_sig#*$@S@SEXPREC#I#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 86,
+                "name" : "rbf_kern(SEXP, double, int, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@rbf_kern#*$@S@SEXPREC#d#I#b#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 128,
+                "name" : "rbf_kern_nn(SEXP, SEXP, int, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@rbf_kern_nn#*$@S@SEXPREC#S0_#I#b#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 178,
+                "name" : "dist_mat(SEXP, int, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@dist_mat#*$@S@SEXPREC#I#b#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 215,
+                "name" : "get_nn_dist(SEXP, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_nn_dist#*$@S@SEXPREC#I#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 245,
+                "name" : "calc_nn(SEXP, int, bool, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@calc_nn#*$@S@SEXPREC#I#b#I#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 256,
+                "name" : "linear_kern(SEXP, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@linear_kern#*$@S@SEXPREC#I#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+                "kind" : 6,
+                "line" : 288,
+                "name" : "cosine_kern(SEXP, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@cosine_kern#*$@S@SEXPREC#I#"
+            }
+        ],
+        "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/mat_mult.cpp",
+        "file_last_write" : 1563256491.000000
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 26,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 6,
+                "line" : 5,
+                "name" : "get_ngrams(std::string, int, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_ngrams#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#I#b#"
+            },
+            {
+                "column" : 26,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 6,
+                "line" : 25,
+                "name" : "get_common(std::vector<std::string>, std::vector<std::string>)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_common#$@N@std@S@vector>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@allocator>#S1_#S0_#"
+            },
+            {
+                "column" : 7,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 2,
+                "line" : 33,
+                "name" : "NgramData",
+                "parent_name" : "",
+                "usr" : "c:@S@NgramData"
+            },
+            {
+                "column" : 24,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 7,
+                "line" : 70,
+                "name" : "get_id1",
+                "parent_name" : "NgramData",
+                "usr" : "c:@S@NgramData@F@get_id1#"
+            },
+            {
+                "column" : 24,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 7,
+                "line" : 74,
+                "name" : "get_id2",
+                "parent_name" : "NgramData",
+                "usr" : "c:@S@NgramData@F@get_id2#"
+            },
+            {
+                "column" : 37,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 7,
+                "line" : 78,
+                "name" : "get_cgrams",
+                "parent_name" : "NgramData",
+                "usr" : "c:@S@NgramData@F@get_cgrams#"
+            },
+            {
+                "column" : 16,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 7,
+                "line" : 82,
+                "name" : "get_clen",
+                "parent_name" : "NgramData",
+                "usr" : "c:@S@NgramData@F@get_clen#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 6,
+                "line" : 90,
+                "name" : "ngrams(SEXP, SEXP, SEXP)",
+                "parent_name" : "",
+                "usr" : "c:@F@ngrams#*$@S@SEXPREC#S0_#S0_#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+                "kind" : 6,
+                "line" : 101,
+                "name" : "ngrams_df(SEXP, SEXP, SEXP, SEXP)",
+                "parent_name" : "",
+                "usr" : "c:@F@ngrams_df#*$@S@SEXPREC#S0_#S0_#S0_#"
+            }
+        ],
+        "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/ngrams.cpp",
+        "file_last_write" : 1563256982.000000
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 7,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 2,
+                "line" : 11,
+                "name" : "Tfdatamat",
+                "parent_name" : "",
+                "usr" : "c:@S@Tfdatamat"
+            },
+            {
+                "column" : 37,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 7,
+                "line" : 29,
+                "name" : "get_genes",
+                "parent_name" : "Tfdatamat",
+                "usr" : "c:@S@Tfdatamat@F@get_genes#"
+            },
+            {
+                "column" : 37,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 7,
+                "line" : 33,
+                "name" : "get_tfs",
+                "parent_name" : "Tfdatamat",
+                "usr" : "c:@S@Tfdatamat@F@get_tfs#"
+            },
+            {
+                "column" : 17,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 7,
+                "line" : 37,
+                "name" : "get_mat",
+                "parent_name" : "Tfdatamat",
+                "usr" : "c:@S@Tfdatamat@F@get_mat#"
+            },
+            {
+                "column" : 26,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 52,
+                "name" : "dedup(std::vector<std::string>)",
+                "parent_name" : "",
+                "usr" : "c:@F@dedup#$@N@std@S@vector>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@allocator>#S1_#"
+            },
+            {
+                "column" : 5,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 71,
+                "name" : "getcount(std::vector<std::string>, std::vector<std::string>, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@getcount#$@N@std@S@vector>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@allocator>#S1_#S0_#b#"
+            },
+            {
+                "column" : 27,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 94,
+                "name" : "getcount(std::vector<std::string>)",
+                "parent_name" : "",
+                "usr" : "c:@F@getcount#$@N@std@S@vector>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@allocator>#S1_#"
+            },
+            {
+                "column" : 26,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 107,
+                "name" : "getkeys(std::map<std::string, std::vector<std::string> >)",
+                "parent_name" : "",
+                "usr" : "c:@F@getkeys#$@N@std@S@map>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@vector>#S1_#$@N@std@S@allocator>#S1_#$@N@std@S@less>#S1_#$@N@std@S@allocator>#$@N@std@S@pair>#1S1_#S4_#"
+            },
+            {
+                "column" : 50,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 120,
+                "name" : "get_tf(std::map<std::string, std::vector<std::string> >)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_tf#$@N@std@S@map>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@vector>#S1_#$@N@std@S@allocator>#S1_#$@N@std@S@less>#S1_#$@N@std@S@allocator>#$@N@std@S@pair>#1S1_#S4_#"
+            },
+            {
+                "column" : 30,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 138,
+                "name" : "get_idf(std::vector<std::string>, std::vector<std::string>)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_idf#$@N@std@S@vector>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@allocator>#S1_#S0_#"
+            },
+            {
+                "column" : 11,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 166,
+                "name" : "calc_tfidf(std::map<std::string, std::map<std::string, int> >, std::map<std::string, double>, bool, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@calc_tfidf#$@N@std@S@map>#$@N@std@N@__cxx11@S@basic_string>#C#$@N@std@S@char_traits>#C#$@N@std@S@allocator>#C#$@N@std@S@map>#S1_#I#$@N@std@S@less>#S1_#$@N@std@S@allocator>#$@N@std@S@pair>#1S1_#I#S5_#$@N@std@S@allocator>#$@N@std@S@pair>#1S1_#S4_#$@N@std@S@map>#S1_#d#S5_#$@N@std@S@allocator>#$@N@std@S@pair>#1S1_#d#b#b#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 218,
+                "name" : "get_tfidf(SEXP, bool)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_tfidf#*$@S@SEXPREC#b#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 247,
+                "name" : "get_tf_gene_binary(SEXP)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_tf_gene_binary#*$@S@SEXPREC#"
+            },
+            {
+                "column" : 6,
+                "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+                "kind" : 6,
+                "line" : 276,
+                "name" : "get_ji(SEXP, int)",
+                "parent_name" : "",
+                "usr" : "c:@F@get_ji#*$@S@SEXPREC#I#"
+            }
+        ],
+        "file" : "/home/sahadeva/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+        "file_last_write" : 1563256491.000000
+    }
+]

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1564825744315.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3548633210",
+    "id" : "65FDF4AD",
+    "lastKnownWriteTime" : 1563256491,
+    "last_content_update" : 1563256491,
+    "path" : "~/workspace/R-stuff/tfKernel/src/tf_kernel.cpp",
+    "project_path" : "src/tf_kernel.cpp",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "cpp"
+}
