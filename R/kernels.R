@@ -96,7 +96,7 @@ cosineKernel <- function(x,ncpus=1){
 }
 
 #' for a given adjacency matrix and beta values, compute the diffusion kernel
-diffusion_kernel <- function(A,beta=0){
+diffusionKernel <- function(A,beta=0){
   if(ncol(A)!=nrow(A)){stop("Error! A is not a square matrix\n")}
   D <- diag(rowSums(A))
   dimnames(D) <- dimnames(A)
