@@ -44,13 +44,7 @@ rbfKernel <- function(x,sigma=NULL,scaled=FALSE,ncpus=3,lap=FALSE){
 #' adaptive: instead of a golobal gamma value, caluclate gamma per point as the mean/meadian of n nearset neighbours,
 #'
 rbf_nn <- function(x,vec=NULL,ncpus=10,lap=FALSE,nn=20,useMedian=TRUE){
-  library(Rcpp)
-  if(ncpus>1){
-    system(sprintf(paste("taskset -p 0x",paste(rep("f",ncpus),collapse="")," %d",sep=""), Sys.getpid())) # makes sure that doMC can use all the cores even in Openblas environment
-    Sys.setenv("PKG_CXXFLAGS"="-fopenmp")
-    Sys.setenv("PKG_LIBS"="-fopenmp")
-  }
-  sourceCpp("~/workspace/sahadeva_work_repository/R_Embl_work/kernel_sources/cpp_sources/mat_mult.cpp")
+
   x <- as.matrix(na.omit(x))
   squared <- TRUE
   if(lap) { squared <- FALSE}
