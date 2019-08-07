@@ -6,14 +6,6 @@
 #' @param ncpus: use the given number of cpus
 #' @return vector
 estimate_sigma <- function(x,scaled=FALSE,ncpus=5){
-  library(Rcpp)
-  if(ncpus>1){
-    system(sprintf(paste("taskset -p 0x",paste(rep("f",ncpus),collapse="")," %d",sep=""), Sys.getpid())) # makes sure that doMC can use all the cores even in Openblas environment
-    Sys.setenv("PKG_CXXFLAGS"="-fopenmp")
-    Sys.setenv("PKG_LIBS"="-fopenmp")
-  }
-  # cpp source code
-  sourceCpp("~/workspace/sahadeva_work_repository/R_Embl_work/kernel_sources/cpp_sources/mat_mult.cpp")
   x <- na.omit(x)
   x <- as.matrix(x)
   if(scaled){
@@ -112,13 +104,6 @@ sigma.sample <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
 #' @param ncpus: number of cpus to use
 #' @param squared: boolean, whether to return the squared distance matrix
 calc_distance <- function(x,ncpus=3,squared=TRUE){
-  library(Rcpp)
-  if(ncpus>1){
-    system(sprintf(paste("taskset -p 0x",paste(rep("f",ncpus),collapse="")," %d",sep=""), Sys.getpid())) # makes sure that doMC can use all the cores even in Openblas environment
-    Sys.setenv("PKG_CXXFLAGS"="-fopenmp")
-    Sys.setenv("PKG_LIBS"="-fopenmp")
-  }
-  sourceCpp("~/workspace/sahadeva_work_repository/R_Embl_work/kernel_sources/cpp_sources/mat_mult.cpp")
   x <- as.matrix(na.omit(x))
   dist <- dist_mat(x,ncpus,squared)
   dimnames(dist) <- list(rownames(x),rownames(x))
@@ -131,13 +116,6 @@ calc_distance <- function(x,ncpus=3,squared=TRUE){
 #' @param squared: boolean, whether to return the squared distance matrix
 #' @
 calc_sigma_nn <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
-  library(Rcpp)
-  if(ncpus>1){
-    system(sprintf(paste("taskset -p 0x",paste(rep("f",ncpus),collapse="")," %d",sep=""), Sys.getpid())) # makes sure that doMC can use all the cores even in Openblas environment
-    Sys.setenv("PKG_CXXFLAGS"="-fopenmp")
-    Sys.setenv("PKG_LIBS"="-fopenmp")
-  }
-  sourceCpp("~/workspace/sahadeva_work_repository/R_Embl_work/kernel_sources/cpp_sources/mat_mult.cpp")
   x <- as.matrix(na.omit(x))
   calc_nn(x,ncpus,squared,nn)
   dist <- calc_nn(x,ncpus,squared,nn)
@@ -208,8 +186,6 @@ get_jaccard_sim <- function(df){
 
 #' an opemp version
 get_jaccardSim <- function(df,cores=3){
-  library(Rcpp)
-  sourceCpp("~/workspace/sahadeva_work_repository/R_Embl_work/kernel_sources/cpp_sources/tf_kernel.cpp")
   out_list <- get_ji(df,cores)
   jd <- out_list$mat
   dimnames(jd) <- list(out_list$genes,out_list$genes)

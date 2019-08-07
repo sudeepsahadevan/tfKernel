@@ -9,6 +9,9 @@ Description: More about what it does (maybe more than one line)
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Imports: Rcpp (>= 1.0.1)
+Imports:
+  Rcpp (>= 1.0.1),
+  doMC,
+  foreach
 LinkingTo: Rcpp
 RoxygenNote: 6.1.1
