@@ -6,7 +6,7 @@
 #' @param K : input kernel
 #' @param type: type of kernel to use, default: "norm"
 #' @return matrix
-graph_laplacian <- function(K,type=c("norm","sym","rw")){
+laplacian <- function(K,type=c("norm","sym","rw")){
   diag(K) <- 0 # for the normalization to hold, the diagonals must be 0
   rSel <- which(rowSums(K)>0)
   K <- K[rSel,rSel]

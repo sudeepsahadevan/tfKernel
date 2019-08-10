@@ -5,7 +5,7 @@
 #' @param scaled : Boolean, whether to scale (recommended) the matrix or not for sigma estimation
 #' @param ncpus: use the given number of cpus
 #' @return vector
-estimate_sigma <- function(x,scaled=FALSE,ncpus=5){
+estimateSigma <- function(x,scaled=FALSE,ncpus=5){
   x <- na.omit(x)
   x <- as.matrix(x)
   if(scaled){
@@ -34,7 +34,7 @@ estimate_sigma <- function(x,scaled=FALSE,ncpus=5){
 #' @param iter: iterate sampling and estimating n times
 #' @param ncpus: use the given number of cpus
 #' @return vector
-sigma.sample <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
+sampleSigma <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
   if(ncpus>1){
     library(doMC)
     library(foreach)
@@ -103,7 +103,7 @@ sigma.sample <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
 #' @param mat: a data.frame or mat object
 #' @param ncpus: number of cpus to use
 #' @param squared: boolean, whether to return the squared distance matrix
-calc_distance <- function(x,ncpus=3,squared=TRUE){
+distance <- function(x,ncpus=3,squared=TRUE){
   x <- as.matrix(na.omit(x))
   dist <- dist_mat(x,ncpus,squared)
   dimnames(dist) <- list(rownames(x),rownames(x))
@@ -115,7 +115,7 @@ calc_distance <- function(x,ncpus=3,squared=TRUE){
 #' @param ncpus: number of cpus to use
 #' @param squared: boolean, whether to return the squared distance matrix
 #' @
-calc_sigma_nn <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
+sigmaNN <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
   x <- as.matrix(na.omit(x))
   calc_nn(x,ncpus,squared,nn)
   dist <- calc_nn(x,ncpus,squared,nn)
@@ -185,7 +185,7 @@ get_jaccard_sim <- function(df){
 }
 
 #' an opemp version
-get_jaccardSim <- function(df,cores=3){
+jaccardSim <- function(df,cores=3){
   out_list <- get_ji(df,cores)
   jd <- out_list$mat
   dimnames(jd) <- list(out_list$genes,out_list$genes)
