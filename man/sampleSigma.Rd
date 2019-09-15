@@ -11,14 +11,14 @@ sampleSigma(x, frac = 1, scaled = TRUE, iter = 1000, ncpus = 1)
 \arguments{
 \item{x}{an n X p matrix}
 
-\item{frac}{: fraction of n to be used in estimating sigma, if frac is 'NULL', frac is drawn iter times from a
+\item{frac}{fraction of n to be used in estimating sigma, if frac is 'NULL', frac is drawn iter times from a
 random uniform distribution with min=0 and max=1}
 
-\item{scaled}{: Boolean, whether to scale (recommended) the matrix or not}
+\item{scaled}{Boolean, whether to scale (recommended) the matrix or not}
 
-\item{iter:}{iterate sampling and estimating n times}
+\item{iter}{iterate sampling and estimating n times}
 
-\item{ncpus:}{use the given number of cpus}
+\item{ncpus}{use the given number of cpus}
 }
 \value{
 vector

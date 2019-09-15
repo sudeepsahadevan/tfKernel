@@ -11,9 +11,9 @@ Where D is the diagonal matrix, L is the unnormalized laplacian D-K}
 laplacian(K, type = c("norm", "sym", "rw"))
 }
 \arguments{
-\item{K}{: input kernel}
+\item{K}{input kernel}
 
-\item{type:}{type of kernel to use, default: "norm"}
+\item{type}{type of kernel to use, default: "norm"}
 }
 \value{
 matrix

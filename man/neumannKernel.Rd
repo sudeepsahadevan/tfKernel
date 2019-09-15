@@ -7,9 +7,9 @@
 neumannKernel(A, frac = 0.9)
 }
 \arguments{
-\item{A:}{a graph adjacency matrix}
+\item{A}{a graph adjacency matrix}
 
-\item{frac:}{a value 0<frac<1 to calculate alpha}
+\item{frac}{a value 0<frac<1 to calculate alpha}
 }
 \value{
 matrix

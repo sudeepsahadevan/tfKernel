@@ -7,11 +7,11 @@
 distance(x, ncpus = 3, squared = TRUE)
 }
 \arguments{
-\item{mat:}{a data.frame or mat object}
+\item{ncpus}{number of cpus to use}
 
-\item{ncpus:}{number of cpus to use}
+\item{squared}{boolean, whether to return the squared distance matrix}
 
-\item{squared:}{boolean, whether to return the squared distance matrix}
+\item{mat}{a data.frame or mat object}
 }
 \description{
 compute euclidian distance for a given matrix

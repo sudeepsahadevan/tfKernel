@@ -7,9 +7,9 @@
 pinv(m, tol = 1e-10)
 }
 \arguments{
-\item{m}{: a square matrix}
+\item{m}{a square matrix}
 
-\item{tol}{: tolerance level (default: 1e-10) : tolerance level}
+\item{tol}{tolerance level (default: 1e-10) : tolerance level}
 }
 \value{
 matrix

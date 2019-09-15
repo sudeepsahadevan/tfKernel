@@ -7,11 +7,11 @@
 commuteKernel(A, tol = .Machine$double.eps, use.svd = TRUE)
 }
 \arguments{
-\item{A}{: a graph adjacency matrix}
+\item{A}{a graph adjacency matrix}
 
-\item{use.svd}{: Boolean, if TRUE uses custom SVD for psuedo inverse calculations, else uses ginv function from MASS package}
+\item{tol}{tolerance level for psuedo inverse calculations}
 
-\item{tol:}{tolerance level for psuedo inverse calculations}
+\item{use.svd}{Boolean, if TRUE uses custom SVD for psuedo inverse calculations, else uses ginv function from MASS package}
 }
 \value{
 matrix

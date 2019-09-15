@@ -7,7 +7,7 @@
 tfBinary(df)
 }
 \arguments{
-\item{df:}{a data.frame, first column must be gene ids and second column must be transcription factors}
+\item{df}{a data.frame, first column must be gene ids and second column must be transcription factors}
 }
 \value{
 matrix

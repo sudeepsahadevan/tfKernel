@@ -50,7 +50,7 @@ graph_wrapper <- function(x,sigma=1,lap=FALSE,ncpus=5,type=c("norm","sym","rw"))
 #' springer pay page: http://link.springer.com/article/10.1007%2Fs11004-010-9276-7
 #' @param obj a list object, output from 'eigen' function
 #' @return data.frame
-get_dom_term_eigen <- function(obj){
+eigenDomTerm <- function(obj){
   n <- length(obj$values)
   ob_1nt <- t(rep(1/n,n))
   out_mat <- matrix(0,ncol=1,nrow=n)

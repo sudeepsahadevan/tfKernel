@@ -7,9 +7,9 @@
 tfIdf(df, notf = FALSE)
 }
 \arguments{
-\item{df:}{a data.frame, first column must be gene ids and second column must be transcription factors}
+\item{df}{a data.frame, first column must be gene ids and second column must be transcription factors}
 
-\item{notf:}{Boolean, if true, only idf value will be calculated}
+\item{notf}{Boolean, if true, only idf value will be calculated}
 }
 \value{
 matrix

@@ -10,10 +10,10 @@ Neural Netw. 31 (July 2012), 53-72. DOI=10.1016/j.neunet.2012.03.001 http://dx.d
 regularized_commute_kernel(A, alpha = 0.95)
 }
 \arguments{
-\item{A}{: a graph adjacency matrix}
+\item{A}{a graph adjacency matrix}
 
-\item{alpha}{: The probability of random walker staying at each step. 1-alpha is the probability of the walker
-: "evaporating" at each step.}
+\item{alpha}{The probability of random walker staying at each step. 1-alpha is the probability of the walker
+"evaporating" at each step.}
 }
 \value{
 matrix

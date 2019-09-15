@@ -9,11 +9,11 @@ use the whole data instead of random samples from data}
 estimateSigma(x, scaled = FALSE, ncpus = 5)
 }
 \arguments{
-\item{scaled}{: Boolean, whether to scale (recommended) the matrix or not for sigma estimation}
+\item{x}{an nXp data.frame or a matrix}
 
-\item{x:}{an nXp data.frame or a matrix}
+\item{scaled}{Boolean, whether to scale (recommended) the matrix or not for sigma estimation}
 
-\item{ncpus:}{use the given number of cpus}
+\item{ncpus}{use the given number of cpus}
 }
 \value{
 vector

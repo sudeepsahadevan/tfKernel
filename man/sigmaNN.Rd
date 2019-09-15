@@ -7,11 +7,11 @@
 sigmaNN(x, ncpus = 3, squared = TRUE, nn = 10, useMedian = TRUE)
 }
 \arguments{
-\item{mat:}{a data.frame or mat object}
+\item{ncpus}{number of cpus to use}
 
-\item{ncpus:}{number of cpus to use}
+\item{squared}{boolean, whether to return the squared distance matrix}
 
-\item{squared:}{boolean, whether to return the squared distance matrix}
+\item{mat}{a data.frame or mat object}
 }
 \description{
 compute euclidian distance for a given matrix and return sigma (1/dist) for the top n nearest neighbor distances

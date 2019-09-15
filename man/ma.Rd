@@ -8,9 +8,9 @@ calculate moving average}
 ma(vec, n = 3)
 }
 \arguments{
-\item{vec:}{a vector of values}
+\item{vec}{a vector of values}
 
-\item{n:}{number of values to calculate moving average from}
+\item{n}{number of values to calculate moving average from}
 }
 \value{
 vector
