@@ -1,12 +1,11 @@
 Package: tfKernel
 Type: Package
-Title: What the Package Does (Title Case)
+Title: A package for transcription factor parsing, kernel functions
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Sudeep Sahadevan
+Maintainer: Sudeep Sahadevan
+Description: This is a package for transcription factor analysis, and kernel functions
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:

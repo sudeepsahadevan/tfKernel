@@ -9,15 +9,15 @@ commuteKernel(A, tol = .Machine$double.eps, use.svd = TRUE)
 \arguments{
 \item{A}{: a graph adjacency matrix}
 
-\item{tol:}{tolerance level for psuedo inverse calculations}
+\item{use.svd}{: Boolean, if TRUE uses custom SVD for psuedo inverse calculations, else uses ginv function from MASS package}
 
-\item{use_svd}{: Boolean, if TRUE uses custom SVD for psuedo inverse calculations, else uses ginv function from MASS package}
+\item{tol:}{tolerance level for psuedo inverse calculations}
 }
 \value{
 matrix
 }
 \description{
-For a given graph adjacency matrix, calculate the commute time kernel
+For a given graph adjacency matrix, calculate the commute time kernel \cr
 formula source: "François Fouss, Kevin Francoisse, Luh Yen, Alain Pirotte, and Marco Saerens.
 An experimental investigation of kernels on graphs for collaborative recommendation and semisupervised classification.
 Neural Netw. 31 (July 2012), 53-72. DOI=10.1016/j.neunet.2012.03.001" \href{http://dx.doi.org/10.1016/j.neunet.2012.03.001}{DOI}
