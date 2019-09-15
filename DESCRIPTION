@@ -3,7 +3,7 @@ Type: Package
 Title: A package for transcription factor parsing, kernel functions
 Version: 0.1.0
 Author: Sudeep Sahadevan
-Maintainer: Sudeep Sahadevan
+Maintainer: Sudeep Sahadevan<me@mail.com>
 Description: This is a package for transcription factor analysis, and kernel functions
 License: GPL-3
 Encoding: UTF-8
