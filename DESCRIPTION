@@ -11,6 +11,7 @@ LazyData: true
 Imports:
   Rcpp (>= 1.0.1),
   doMC,
+  MASS,
   foreach
 LinkingTo: Rcpp
 RoxygenNote: 6.1.1

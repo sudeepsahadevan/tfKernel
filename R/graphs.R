@@ -3,8 +3,8 @@
 #' norm: is (D^-1/2)L(D^-1/2) normalized laplacian
 #' rw: is (D^-1) random walk laplacian
 #' Where D is the diagonal matrix, L is the unnormalized laplacian D-K
-#' @param K : input kernel
-#' @param type: type of kernel to use, default: "norm"
+#' @param K input kernel
+#' @param type type of kernel to use, default: "norm"
 #' @return matrix
 laplacian <- function(K,type=c("norm","sym","rw")){
   diag(K) <- 0 # for the normalization to hold, the diagonals must be 0
@@ -48,7 +48,7 @@ graph_wrapper <- function(x,sigma=1,lap=FALSE,ncpus=5,type=c("norm","sym","rw"))
 #'                                            Mathematical Geosciences 42 (5): 487–517. doi:10.1007/s11004-010-9276-7
 #' pdf source: https://pangea.stanford.edu/ERE/pdf/pereports/PhD/Honarkhah2011.pdf
 #' springer pay page: http://link.springer.com/article/10.1007%2Fs11004-010-9276-7
-#' @param obj: a list object, output from 'eigen' function
+#' @param obj a list object, output from 'eigen' function
 #' @return data.frame
 get_dom_term_eigen <- function(obj){
   n <- length(obj$values)
@@ -74,8 +74,8 @@ get_dom_term_eigen <- function(obj){
 
 #' helper function
 #' calculate moving average
-#' @param vec: a vector of values
-#' @param n: number of values to calculate moving average from
+#' @param vec a vector of values
+#' @param n number of values to calculate moving average from
 #' @return vector
 ma <- function(vec, n=3){
   res <- vec

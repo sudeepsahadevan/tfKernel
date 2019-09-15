@@ -109,8 +109,8 @@ diffusionKernel <- function(A,beta=0){
 #' for a given graph adjacency matrix, calculate von Neumann diffusion kernel
 #' defined as K = inv(I-alpha*A), where alpha is defined as 0<alpha<sig(A)
 #' and sig(A) is max(abs(eigen(A)$values))
-#' @param A: a graph adjacency matrix
-#' @param frac: a value 0<frac<1 to calculate alpha
+#' @param A a graph adjacency matrix
+#' @param frac a value 0<frac<1 to calculate alpha
 #' @return  matrix
 neumannKernel <- function(A,frac=0.90){
   if(ncol(A)!=nrow(A)){
@@ -136,9 +136,9 @@ neumannKernel <- function(A,frac=0.90){
 #' formula source: "François Fouss, Kevin Francoisse, Luh Yen, Alain Pirotte, and Marco Saerens.
 #' An experimental investigation of kernels on graphs for collaborative recommendation and semisupervised classification.
 #' Neural Netw. 31 (July 2012), 53-72. DOI=10.1016/j.neunet.2012.03.001" \href{http://dx.doi.org/10.1016/j.neunet.2012.03.001}{DOI}
-#' @param A  : a graph adjacency matrix
-#' @param tol: tolerance level for psuedo inverse calculations
-#' @param use.svd : Boolean, if TRUE uses custom SVD for psuedo inverse calculations, else uses ginv function from MASS package
+#' @param A a graph adjacency matrix
+#' @param tol tolerance level for psuedo inverse calculations
+#' @param use.svd Boolean, if TRUE uses custom SVD for psuedo inverse calculations, else uses ginv function from MASS package
 #' @return matrix
 commuteKernel <- function(A,tol=.Machine$double.eps,use.svd=TRUE){
   if(ncol(A)!=nrow(A)){
@@ -152,7 +152,6 @@ commuteKernel <- function(A,tol=.Machine$double.eps,use.svd=TRUE){
     L_pseudo <- pinv(m=L,tol=tol)
     return(L_pseudo)
   }else{
-    library(MASS)
     L_pseudo <- ginv(L,tol=tol)
     return(L_pseudo)
   }

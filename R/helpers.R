@@ -1,9 +1,9 @@
 #' estimate sigma for RBF or laplacian kernel
 #' adopted method: sigest from kernlab R package
 #' use the whole data instead of random samples from data
-#' @param x: an nXp data.frame or a matrix
-#' @param scaled : Boolean, whether to scale (recommended) the matrix or not for sigma estimation
-#' @param ncpus: use the given number of cpus
+#' @param x an nXp data.frame or a matrix
+#' @param scaled Boolean, whether to scale (recommended) the matrix or not for sigma estimation
+#' @param ncpus use the given number of cpus
 #' @return vector
 estimateSigma <- function(x,scaled=FALSE,ncpus=5){
   x <- na.omit(x)
@@ -28,16 +28,14 @@ estimateSigma <- function(x,scaled=FALSE,ncpus=5){
 #' adopted method: sigest from kernlab R package
 #' OBSOLETE: new method uses whole data instead of sampling
 #' @param x an n X p matrix
-#' @param frac : fraction of n to be used in estimating sigma, if frac is 'NULL', frac is drawn iter times from a
+#' @param frac  fraction of n to be used in estimating sigma, if frac is 'NULL', frac is drawn iter times from a
 #' 				 random uniform distribution with min=0 and max=1
-#' @param scaled : Boolean, whether to scale (recommended) the matrix or not
-#' @param iter: iterate sampling and estimating n times
-#' @param ncpus: use the given number of cpus
+#' @param scaled  Boolean, whether to scale (recommended) the matrix or not
+#' @param iter iterate sampling and estimating n times
+#' @param ncpus use the given number of cpus
 #' @return vector
 sampleSigma <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
   if(ncpus>1){
-    library(doMC)
-    library(foreach)
     registerDoMC(cores=ncpus)
   }
   x <- na.omit(x)
@@ -100,9 +98,9 @@ sampleSigma <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
 }
 
 #' compute euclidian distance for a given matrix
-#' @param mat: a data.frame or mat object
-#' @param ncpus: number of cpus to use
-#' @param squared: boolean, whether to return the squared distance matrix
+#' @param mat a data.frame or mat object
+#' @param ncpus number of cpus to use
+#' @param squared boolean, whether to return the squared distance matrix
 distance <- function(x,ncpus=3,squared=TRUE){
   x <- as.matrix(na.omit(x))
   dist <- dist_mat(x,ncpus,squared)
@@ -111,9 +109,9 @@ distance <- function(x,ncpus=3,squared=TRUE){
 }
 
 #' compute euclidian distance for a given matrix and return sigma (1/dist) for the top n nearest neighbor distances
-#' @param mat: a data.frame or mat object
-#' @param ncpus: number of cpus to use
-#' @param squared: boolean, whether to return the squared distance matrix
+#' @param mat a data.frame or mat object
+#' @param ncpus number of cpus to use
+#' @param squared boolean, whether to return the squared distance matrix
 #' @
 sigmaNN <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
   x <- as.matrix(na.omit(x))
@@ -128,8 +126,8 @@ sigmaNN <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
 }
 
 #' For a given matrix calculate the psuedo inverse
-#' @param m : a square matrix
-#' @param tol : tolerance level (default: 1e-10) : tolerance level
+#' @param m  a square matrix
+#' @param tol tolerance level (default: 1e-10) : tolerance level
 #' @return matrix
 pinv <- function(m,tol=1e-10){
   if(ncol(m)!=nrow(m)){
@@ -148,9 +146,9 @@ pinv <- function(m,tol=1e-10){
 #' formula source: "François Fouss, Kevin Francoisse, Luh Yen, Alain Pirotte, and Marco Saerens.
 #' An experimental investigation of kernels on graphs for collaborative recommendation and semisupervised classification.
 #' Neural Netw. 31 (July 2012), 53-72. DOI=10.1016/j.neunet.2012.03.001 http://dx.doi.org/10.1016/j.neunet.2012.03.001."
-#' @param A : a graph adjacency matrix
-#' @param alpha : The probability of random walker staying at each step. 1-alpha is the probability of the walker
-#' 			    : "evaporating" at each step.
+#' @param A a graph adjacency matrix
+#' @param alpha The probability of random walker staying at each step. 1-alpha is the probability of the walker
+#' 			    "evaporating" at each step.
 #' @return matrix
 regularized_commute_kernel <- function(A,alpha=0.95){
   if(ncol(A)!=nrow(A)){
@@ -176,8 +174,6 @@ commute.time.wrapper <- function(A,tol=.Machine$double.eps,use.svd=TRUE){
 
 #' @param  df: a data.frame, first column must be gene ids and second column must be transcription factors
 get_jaccard_sim <- function(df){
-  library(Rcpp)
-  sourceCpp("~/workspace/sahadeva_work_repository/R_Embl_work/kernel_sources/cpp_sources/tf_kernel.cpp")
   out_list <- get_jaccard(df)
   jd <- out_list$mat
   dimnames(jd) <- list(out_list$genes,out_list$genes)

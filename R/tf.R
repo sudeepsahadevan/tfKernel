@@ -3,8 +3,8 @@
 #' @description
 #' Given a data.frame containing gene and associated transcription factors, calculate tf idf
 #' Term frequency, iverse document frequency values
-#' @param  df: a data.frame, first column must be gene ids and second column must be transcription factors
-#' @param notf: Boolean, if true, only idf value will be calculated
+#' @param  df a data.frame, first column must be gene ids and second column must be transcription factors
+#' @param notf Boolean, if true, only idf value will be calculated
 #' @return matrix
 tfIdf <- function(df,notf=FALSE){
   tf_list <- get_tfidf(df,notf)
@@ -19,7 +19,7 @@ tfIdf <- function(df,notf=FALSE){
 #' @description
 #' given a data.frame containing gene and associated transcription factors, return binary matrix
 #' 1 if tf binds to gene, 0 if not
-#' @param  df: a data.frame, first column must be gene ids and second column must be transcription factors
+#' @param  df a data.frame, first column must be gene ids and second column must be transcription factors
 #' @return matrix
 tfBinary <- function(df){
   tf_list <- get_tf_gene_binary(df)
