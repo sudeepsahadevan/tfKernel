@@ -43,7 +43,7 @@ rbfKernel <- function(x,sigma=NULL,scaled=FALSE,ncpus=3,lap=FALSE){
 #' compute adaptive rbf or laplacian kernel
 #' adaptive: instead of a golobal gamma value, caluclate gamma per point as the mean/meadian of n nearset neighbours,
 #'
-rbf_nn <- function(x,vec=NULL,ncpus=10,lap=FALSE,nn=20,useMedian=TRUE){
+rbfNN <- function(x,vec=NULL,ncpus=10,lap=FALSE,nn=20,useMedian=TRUE){
 
   x <- as.matrix(na.omit(x))
   squared <- TRUE
