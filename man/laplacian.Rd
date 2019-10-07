@@ -2,11 +2,7 @@
 % Please edit documentation in R/graphs.R
 \name{laplacian}
 \alias{laplacian}
-\title{for a given kernel, calculate graph laplacian
-sym: is (D^-1/2)K(D^-1/2), symmetric laplacian
-norm: is (D^-1/2)L(D^-1/2) normalized laplacian
-rw: is (D^-1) random walk laplacian
-Where D is the diagonal matrix, L is the unnormalized laplacian D-K}
+\title{compute graph laplacian}
 \usage{
 laplacian(K, type = c("norm", "sym", "rw"))
 }

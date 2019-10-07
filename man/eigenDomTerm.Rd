@@ -2,7 +2,8 @@
 % Please edit documentation in R/graphs.R
 \name{eigenDomTerm}
 \alias{eigenDomTerm}
-\title{estimate the number of clusters based on Honarkhah, M and Caers, J (2010) methodology
+\title{@title compute dominant eigen terms
+ @description estimate the number of clusters based on Honarkhah, M and Caers, J (2010) methodology
 source: Honarkhah, M and Caers, J (2010). "Stochastic Simulation of Patterns Using Distance-Based Pattern Modeling".
                                            Mathematical Geosciences 42 (5): 487–517. doi:10.1007/s11004-010-9276-7
 pdf source: https://pangea.stanford.edu/ERE/pdf/pereports/PhD/Honarkhah2011.pdf
@@ -17,7 +18,8 @@ eigenDomTerm(obj)
 data.frame
 }
 \description{
-estimate the number of clusters based on Honarkhah, M and Caers, J (2010) methodology
+@title compute dominant eigen terms
+ @description estimate the number of clusters based on Honarkhah, M and Caers, J (2010) methodology
 source: Honarkhah, M and Caers, J (2010). "Stochastic Simulation of Patterns Using Distance-Based Pattern Modeling".
                                            Mathematical Geosciences 42 (5): 487–517. doi:10.1007/s11004-010-9276-7
 pdf source: https://pangea.stanford.edu/ERE/pdf/pereports/PhD/Honarkhah2011.pdf

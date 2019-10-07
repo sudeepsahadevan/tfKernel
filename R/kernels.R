@@ -89,6 +89,7 @@ cosineKernel <- function(x,ncpus=1){
   return(cosk)
 }
 
+#' @keywords internal
 #' for a given adjacency matrix and beta values, compute the diffusion kernel
 diffusionKernel <- function(A,beta=0){
   if(ncol(A)!=nrow(A)){stop("Error! A is not a square matrix\n")}
@@ -157,6 +158,7 @@ commuteKernel <- function(A,tol=.Machine$double.eps,use.svd=TRUE){
   }
 }
 
+#' @keywords internal
 #' compute regularized commute time kernel and perform eigen value decomposition
 rct_wrapper <- function(A,alpha=0.95){
   rct <- regularized_commute_kernel(A=A,alpha = alpha)

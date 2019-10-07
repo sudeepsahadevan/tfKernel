@@ -2,8 +2,7 @@
 % Please edit documentation in R/graphs.R
 \name{ma}
 \alias{ma}
-\title{helper function
-calculate moving average}
+\title{moving average}
 \usage{
 ma(vec, n = 3)
 }
@@ -16,6 +15,5 @@ ma(vec, n = 3)
 vector
 }
 \description{
-helper function
 calculate moving average
 }

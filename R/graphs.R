@@ -1,4 +1,5 @@
-#' for a given kernel, calculate graph laplacian
+#' @title compute graph laplacian
+#' @description for a given kernel, calculate graph laplacian
 #' sym: is (D^-1/2)K(D^-1/2), symmetric laplacian
 #' norm: is (D^-1/2)L(D^-1/2) normalized laplacian
 #' rw: is (D^-1) random walk laplacian
@@ -34,6 +35,7 @@ laplacian <- function(K,type=c("norm","sym","rw")){
   return(L)
 }
 
+#' @keywords internal
 #' a wrapper function for rbf_wrapper and graph_laplacian functions
 graph_wrapper <- function(x,sigma=1,lap=FALSE,ncpus=5,type=c("norm","sym","rw")){
   x <- as.matrix(na.omit(x))
@@ -43,7 +45,8 @@ graph_wrapper <- function(x,sigma=1,lap=FALSE,ncpus=5,type=c("norm","sym","rw"))
 }
 
 
-#' estimate the number of clusters based on Honarkhah, M and Caers, J (2010) methodology
+#'  @title compute dominant eigen terms
+#'  @description estimate the number of clusters based on Honarkhah, M and Caers, J (2010) methodology
 #' source: Honarkhah, M and Caers, J (2010). "Stochastic Simulation of Patterns Using Distance-Based Pattern Modeling".
 #'                                            Mathematical Geosciences 42 (5): 487–517. doi:10.1007/s11004-010-9276-7
 #' pdf source: https://pangea.stanford.edu/ERE/pdf/pereports/PhD/Honarkhah2011.pdf
@@ -72,7 +75,8 @@ eigenDomTerm <- function(obj){
   return(out_mat)
 }
 
-#' helper function
+#' @title moving average
+#' @description
 #' calculate moving average
 #' @param vec a vector of values
 #' @param n number of values to calculate moving average from
