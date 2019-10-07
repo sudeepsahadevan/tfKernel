@@ -1,5 +1,7 @@
-#' estimate sigma for RBF or laplacian kernel
-#' adopted method: sigest from kernlab R package
+#' @title  estimate sigma
+#' @description estimate sigma for RBF or laplacian kernel
+#' adopted method: sigest from \link[https://cran.r-project.org/web/packages/kernlab/index.html]{kernlab} R package,
+#' credit goes to authors
 #' use the whole data instead of random samples from data
 #' @param x an nXp data.frame or a matrix
 #' @param scaled Boolean, whether to scale (recommended) the matrix or not for sigma estimation
@@ -24,6 +26,7 @@ estimateSigma <- function(x,scaled=FALSE,ncpus=5){
   return(pairwise_dist)
 }
 
+#' @keywords internal
 #' estimate sigma for RBF or laplacian kernel
 #' adopted method: sigest from kernlab R package
 #' OBSOLETE: new method uses whole data instead of sampling
@@ -97,6 +100,8 @@ sampleSigma <- function(x,frac=1,scaled=TRUE,iter=1000,ncpus=1){
 
 }
 
+#' @title euclidian distance
+#' @description
 #' compute euclidian distance for a given matrix
 #' @param mat a data.frame or mat object
 #' @param ncpus number of cpus to use
@@ -108,11 +113,12 @@ distance <- function(x,ncpus=3,squared=TRUE){
   return(dist)
 }
 
+#' @title compute sigma for N nearest neighbors
+#' @description
 #' compute euclidian distance for a given matrix and return sigma (1/dist) for the top n nearest neighbor distances
 #' @param mat a data.frame or mat object
 #' @param ncpus number of cpus to use
 #' @param squared boolean, whether to return the squared distance matrix
-#' @
 sigmaNN <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
   x <- as.matrix(na.omit(x))
   calc_nn(x,ncpus,squared,nn)
@@ -125,6 +131,8 @@ sigmaNN <- function(x,ncpus=3,squared=TRUE,nn=10,useMedian=TRUE){
   }
 }
 
+#' @title matrix pseudo inverse
+#' @description
 #' For a given matrix calculate the psuedo inverse
 #' @param m  a square matrix
 #' @param tol tolerance level (default: 1e-10) : tolerance level
@@ -142,43 +150,7 @@ pinv <- function(m,tol=1e-10){
   return(inv_m)
 }
 
-#' For a given graph, compute regularized commute time kernel
-#' formula source: "François Fouss, Kevin Francoisse, Luh Yen, Alain Pirotte, and Marco Saerens.
-#' An experimental investigation of kernels on graphs for collaborative recommendation and semisupervised classification.
-#' Neural Netw. 31 (July 2012), 53-72. DOI=10.1016/j.neunet.2012.03.001 http://dx.doi.org/10.1016/j.neunet.2012.03.001."
-#' @param A a graph adjacency matrix
-#' @param alpha The probability of random walker staying at each step. 1-alpha is the probability of the walker
-#' 			    "evaporating" at each step.
-#' @return matrix
-regularized_commute_kernel <- function(A,alpha=0.95){
-  if(ncol(A)!=nrow(A)){
-    stop("Error! input matrix A is not symmetrical\n")
-  }
-  if(alpha==1){
-    cat("Warning! cannot set alpha to 1, matrix becomes non invertible\nNew value for alpha is 0.95\n")
-    alpha = 0.95
-  }
-  diag(A) <- 0
-  D <- diag(rowSums(A))
-  dimnames(D) <- dimnames(A)
-  L_inv <- solve(D-alpha*A)
-  return(L_inv)
-}
 
-#' compute commute time kernel and perform eigen value decomposition
-commute.time.wrapper <- function(A,tol=.Machine$double.eps,use.svd=TRUE){
-  ct <- commute_kernel (A=A,tol=tol,use_svd=use_svd)
-  ct_eigen <- eigen(ct)
-  return(list(kern=ct,eig=ct_eigen))
-}
-
-#' @param  df: a data.frame, first column must be gene ids and second column must be transcription factors
-get_jaccard_sim <- function(df){
-  out_list <- get_jaccard(df)
-  jd <- out_list$mat
-  dimnames(jd) <- list(out_list$genes,out_list$genes)
-  return(jd)
-}
 
 #' an opemp version
 jaccardSim <- function(df,cores=3){
