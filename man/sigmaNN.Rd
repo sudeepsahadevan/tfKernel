@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{sigmaNN}
 \alias{sigmaNN}
-\title{compute euclidian distance for a given matrix and return sigma (1/dist) for the top n nearest neighbor distances}
+\title{compute sigma for N nearest neighbors}
 \usage{
 sigmaNN(x, ncpus = 3, squared = TRUE, nn = 10, useMedian = TRUE)
 }

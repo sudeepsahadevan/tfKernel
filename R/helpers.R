@@ -150,12 +150,3 @@ pinv <- function(m,tol=1e-10){
   return(inv_m)
 }
 
-
-
-#' an opemp version
-jaccardSim <- function(df,cores=3){
-  out_list <- get_ji(df,cores)
-  jd <- out_list$mat
-  dimnames(jd) <- list(out_list$genes,out_list$genes)
-  return(jd)
-}

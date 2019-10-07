@@ -2,9 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{estimateSigma}
 \alias{estimateSigma}
-\title{estimate sigma for RBF or laplacian kernel
-adopted method: sigest from kernlab R package
-use the whole data instead of random samples from data}
+\title{estimate sigma}
 \usage{
 estimateSigma(x, scaled = FALSE, ncpus = 5)
 }
@@ -20,6 +18,7 @@ vector
 }
 \description{
 estimate sigma for RBF or laplacian kernel
-adopted method: sigest from kernlab R package
+adopted method: sigest from \link[https://cran.r-project.org/web/packages/kernlab/index.html]{kernlab} R package,
+credit goes to authors
 use the whole data instead of random samples from data
 }

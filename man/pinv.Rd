@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{pinv}
 \alias{pinv}
-\title{For a given matrix calculate the psuedo inverse}
+\title{matrix pseudo inverse}
 \usage{
 pinv(m, tol = 1e-10)
 }

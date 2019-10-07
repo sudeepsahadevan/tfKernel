@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers.R
 \name{distance}
 \alias{distance}
-\title{compute euclidian distance for a given matrix}
+\title{euclidian distance}
 \usage{
 distance(x, ncpus = 3, squared = TRUE)
 }
